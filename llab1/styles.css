@@ -3,8 +3,7 @@ header nav ul li{
     padding: 20px;
     color: aliceblue;
     text-decoration: none;
-    text-align: center;
-    justify-content: center;
+   
 }
 header nav ul li a{
     
@@ -16,7 +15,10 @@ header nav ul {
     position: absolute;
     top: 30%;
   font-size: 15px;
-   align-items: flex-start;
+  padding-left: 0px;
+  
+  
+  
 }
 .ITI{
     
@@ -31,7 +33,6 @@ header nav{display: flex;
 background-color:black ;
 height: 100px;
 position: relative;
-
 
 }
 .div1{
