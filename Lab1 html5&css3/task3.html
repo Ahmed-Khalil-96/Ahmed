@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    svg {
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+      display: block;
+      margin: 20px auto;
+    }
+
+    polygon {
+      fill: #ff6666;
+      stroke: #333;
+      stroke-width: 2;
+    }
+
+    text {
+      font-size: 24px;
+      fill: #333;
+      text-anchor: middle;
+    }
+
+    math {
+      display: block;
+      font-size: 30px;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <polygon points="10,290 290,290 290,10" />
+  <text x="70" y="290" dy="0.3em">a</text>
+  <text x="290" y="140" transform="rotate(-90 290,140)" dy="0.3em">b</text>
+  <text x="150" y="30" font-weight="bold">c</text>
+</svg>
+
+<math>
+  <mrow>
+    <mi>c</mi>
+    <mo>=</mo>
+    <msqrt>
+      <msup>
+        <mi>a</mi>
+        <mn>2</mn>
+      </msup>
+      <mo>+</mo>
+      <msup>
+        <mi>b</mi>
+        <mn>2</mn>
+      </msup>
+    </msqrt>
+  </mrow>
+</math>
+
+</body>
+</html>

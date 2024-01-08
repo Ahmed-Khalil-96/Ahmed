@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <video id="vid" src="frozen.mp4" style="height: 300px; width: 500px; "  muted  ></video>
+    <div id="timer">0:00 / 0:00</div>
+    
+    <input id="currenttime" type="range" style="width: 500px; display: block;" min=0 max=100 value=0>
+    <button id="play">play</button>
+    <button id="stop">Stop</button>
+    <button id="<<"> lower playback rate </button>
+    <button id="<"><</button>
+    <button id=">">></button>
+    <button id="increase">increase playback rate</button>    
+    <input type="range" name="" id="sound"  min="0" max="1" step="0.1" value="1">
+    <button id="mute">Mute</button> <br>
+    <span>Speed</span>
+    <input type="range" id="speed" min="0.5" max="2" step="0.1" value="1">
+    <script src="script.js"></script>
+</body>
+</html>
