@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <h1>Data Table</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody id="dataTableBody"></tbody>
+  </table>
+
+  <button onclick="deleteAllData()">Delete All Data</button>
+
+  <script>
+    function displayData() {
+      const existingData = JSON.parse(localStorage.getItem('formData')) || [];
+      const dataTableBody = document.getElementById('dataTableBody');
+
+      dataTableBody.innerHTML = '';
+      existingData.forEach((data, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${data.name}</td>
+          <td>${data.age}</td>
+          <td><button onclick="deleteData(${index})">Delete</button></td>
+        `;
+        dataTableBody.appendChild(row);
+      });
+    }
+    function deleteData(index) {
+      const existingData = JSON.parse(localStorage.getItem('formData')) || [];
+
+      existingData.splice(index, 1);
+
+      localStorage.setItem('formData', JSON.stringify(existingData));
+
+      displayData();
+    }
+
+    function deleteAllData() {
+      localStorage.removeItem('formData');
+
+    
+      displayData();
+    }
+    displayData();
+  </script>
+</body>
+</html>

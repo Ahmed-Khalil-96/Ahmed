@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <h1>Form</h1>
+  <form id="dataForm" onsubmit="submitForm(event)">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const currentData = JSON.parse(localStorage.getItem('formData')) || [];
+
+      existingData.push({ name, age });
+      localStorage.setItem('formData', JSON.stringify(currentData));
+
+
+      window.location.href = 'task3-b.html';
+    }
+  </script>
+</body>
+</html>

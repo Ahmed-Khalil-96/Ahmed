@@ -1,0 +1,65 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<body>
+  <h1>Web Worker</h1>
+  <p>location Result: <span id="geolocationResult"></span></p>
+  <p>Result from webWorker: <span id="workerResult"></span></p>
+
+  <script>
+    function locationTask() {
+      const geolocationResultElement = document.getElementById('geolocationResult');
+
+    
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          function(position) {
+        
+            geolocationResultElement.textContent = `Latitude: ${position.coords.latitude.toFixed(6)}, Longitude: ${position.coords.longitude.toFixed(6)}`;
+          },
+          function(error) {
+            console.error(`Error getting location: ${error.message}`);
+          }
+        );
+      } else {
+        geolocationResultElement.textContent = "Geolocation is not supported by your browser";
+      }
+    }
+    locationTask();
+    const calculationWorker = new Worker('./task2.js');
+    calculationWorker.onmessage = function(event) {
+      const data = event.data;
+
+      
+      switch (data.type) {
+        case 'result':
+          const workerResult = document.getElementById('workerResult');
+          workerResult.textContent = data.result;
+          break;
+
+        default:
+
+          break;
+      }
+    };
+
+    function workerTask() {
+      const numberToCalculate = 5;
+
+      calculationWorker.postMessage({
+        type: 'calculate',
+        number: numberToCalculate,
+      });
+    }
+
+
+  workerTask();
+  </script>
+</body>
+</html>
