@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="slideshow-container">
+    <div class="mySlides">
+        <img src="back1.jpg" alt="Slide 1">
+    </div>
+    <div class="mySlides">
+        <img src="back2.jpg" alt="Slide 2">
+    </div>
+    <div class="mySlides">
+        <img src="back3.jpg" alt="Slide 3">
+    </div>
+</div>
+<button class="btn">Stop</button>
+<div class="container">
+<div class="item">
+    <img src="men-fashion-card.jpg" alt="Image" class="item-img">
+    <p class="item-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta?</p>
+</div>
+
+<div class="item">
+    <img src="banner-04.jpg" alt="Img" class="item-img">
+    <p class="item-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+</div>
+<div class="item">
+    <img src="banner-05.jpg" alt="Image" class="item-img">
+    <p class="item-desc">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+</div>
+</div>
+
+<script src="npm/node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+let slides = $('.mySlides');
+let imgArr = ['back1.jpg', 'back2.jpg', 'back3.jpg'];
+let i = 0;
+let imgSlider;
+
+// Hide all slides except the first one
+slides.not(':first').hide();
+
+function fade() {
+    slides.eq(i).fadeOut(1000, () => {
+        i = (i + 1) % imgArr.length;
+        slides.eq(i).fadeIn(1000);
+    });
+}
+
+fade();
+imgSlider = setInterval(fade, 3000);
+
+$('.btn').on('click', () => {
+    clearInterval(imgSlider);
+});
+
+$('.item-img').on('click', function(){
+    $(this).siblings('p').slideToggle(1000);
+})
+console.log($('.item-img').siblings());
+
+</script>
+
+</body>
+</html>
