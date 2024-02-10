@@ -28,7 +28,7 @@ function addUser() {
     users.push(user)
     console.log(users);
     localStorage.setItem('users', JSON.stringify(users))
-    location.assign('./form-table.html')
+    location.assign('table.html')
 }
 
 
